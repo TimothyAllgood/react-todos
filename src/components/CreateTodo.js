@@ -2,12 +2,23 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as CheckMark } from '../assets/images/icon__check.svg';
 
+// Styling for the container
 const Container = styled.div`
 	position: relative;
 	margin-top: 25px;
 `;
 
+// Styling for the input that creates the todo
 const TodoInput = styled.input`
+	/* Fixes bug with input color */
+	&:-webkit-autofill,
+	:-webkit-autofill:hover, 
+	:-webkit-autofill:focus, 
+	:-webkit-autofill:active
+	{
+		-webkit-box-shadow: 0 0 0 30px #25273c inset !important;
+		-webkit-text-fill-color: white !important;
+	}
 	position: relative;
 	background: #25273c;
 	color: #fff;
@@ -17,12 +28,14 @@ const TodoInput = styled.input`
 	border: none;
 	outline: none;
 	&:focus,
+	transform: translateZ(0);
 	:hover {
 		background: #25273c;
 		box-shadow: 0px 0px 4px 2px rgba(255, 255, 255, 0.25);
 	}
 `;
 
+// Styling for Circle button that saves todo
 const Circle = styled.button`
 	width: 24px;
 	height: 24px;
@@ -69,7 +82,7 @@ function CreateTodo({ todos, setTodos }) {
 	};
 
 	// When the circular button in the input is clicked update our global todos state
-	const handleClick = () => {
+	const handleClick = (e) => {
 		// Check if todo exist
 		// TODO: add error alert
 		if (todo.length > 0) {
@@ -105,7 +118,7 @@ function CreateTodo({ todos, setTodos }) {
 
 	return (
 		<Container>
-			<Circle onClick={handleClick}>
+			<Circle onClick={(e) => handleClick(e)}>
 				<CheckMark />
 			</Circle>
 			<TodoInput

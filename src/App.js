@@ -28,7 +28,7 @@ function App() {
 		<Main>
 			<Grid>
 				<Header todos={todos} setTodos={setTodos}></Header>
-				<TodosContainer todos={todos}></TodosContainer>
+				<TodosContainer todos={todos} setTodos={setTodos}></TodosContainer>
 			</Grid>
 		</Main>
 	);
