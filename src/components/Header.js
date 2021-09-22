@@ -19,7 +19,7 @@ const Background = styled.section`
 const Title = styled.h1`
 	font-style: normal;
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 2rem;
 	line-height: 29px;
 	letter-spacing: 0.25em;
 	text-transform: uppercase;

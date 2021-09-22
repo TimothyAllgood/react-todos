@@ -16,11 +16,15 @@ function TodoCounter({ todos, setTodos, setFilter, filter }) {
 		}
 	`;
 
+	// Variable to track count of active todos
 	let count;
+
+	// Filter out completed todos
 	if (todos.length > 0) {
 		count = todos.filter((todo) => todo.active).length;
 	}
 
+	// Clear todos that are completed from our todos state array
 	const clearCompleted = () => {
 		let activeTodos = todos.filter((todo) => todo.active);
 		setTodos(activeTodos);

@@ -12,9 +12,30 @@ const TodosInner = styled(Container)`
 	margin-top: -25px;
 	z-index: 1;
 	padding: 15px;
+	.paragraph {
+		text-align: center;
+	}
+	@media screen and (min-width: 800px) {
+		 {
+			margin-top: -40px;
+			.paragraph {
+				min-height: 150px;
+				p {
+					width: 500px;
+				}
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
 `;
 
 function TodosContainer({ todos, setTodos }) {
+	// State to track which todos are being filtered
 	const [filter, setFilter] = useState('All');
 
 	// Will hold our todo components
@@ -65,10 +86,12 @@ function TodosContainer({ todos, setTodos }) {
 			{todos.length > 0 ? (
 				todosList
 			) : (
-				<p>
-					You have no items in your todo list. Create an item to begin tracking
-					you list.
-				</p>
+				<div className='paragraph'>
+					<p>
+						You have no items in your todo list. Create an item to begin
+						tracking you list.
+					</p>
+				</div>
 			)}
 			{/* Display counter of active elements and button to clear completed todos if todos exist*/}
 			{todos.length > 0 && (

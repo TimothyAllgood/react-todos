@@ -32,9 +32,11 @@ const Container = styled.div`
 `;
 
 function FilterTodo({ filter, setFilter }) {
+	// Sets our filter state
 	const updateFilter = (e) => {
 		setFilter(e.target.innerText);
 	};
+
 	// This will filter the todos based on completion status
 	return (
 		<Container id='filter-container'>
