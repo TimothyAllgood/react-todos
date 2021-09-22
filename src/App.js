@@ -1,25 +1,17 @@
-import logo from './logo.svg';
+// Import Required modules
 import './App.css';
+import styled from 'styled-components';
+
+// Main container styling
+const Main = styled.main`
+	width: 100vw;
+	height: 100vh;
+	background: #181824;
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// This component will be the container for all other components
+	return <Main></Main>;
 }
 
 export default App;
