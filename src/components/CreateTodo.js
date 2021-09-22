@@ -18,6 +18,7 @@ const TodoInput = styled.input`
 	outline: none;
 	&:focus,
 	:hover {
+		background: #25273c;
 		box-shadow: 0px 0px 4px 2px rgba(255, 255, 255, 0.25);
 	}
 `;
@@ -72,7 +73,14 @@ function CreateTodo({ todos, setTodos }) {
 		// Check if todo exist
 		// TODO: add error alert
 		if (todo.length > 0) {
-			setTodos([...todos, { item: todo, progress: 'Active' }]);
+			setTodos([
+				...todos,
+				{
+					item: todo,
+					progress: 'Active',
+					id: Math.floor(Math.random() * 10000),
+				},
+			]);
 			// Reset todo
 			setTodo('');
 			todoInput.value = '';

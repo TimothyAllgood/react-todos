@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { Container } from '../shared/Container';
+import Todo from './Todo';
 
 // Styles our inner container extending our container component styling
 const TodosInner = styled(Container)`
@@ -10,10 +12,30 @@ const TodosInner = styled(Container)`
 	padding: 15px;
 `;
 
-function TodosContainer() {
+function TodosContainer({ todos }) {
+	// Will hold our todo components
+	let todosList;
+
+	if (todos) {
+		todosList = todos.map((todo) => {
+			return (
+				<>
+					<Todo key={todo.id} todo={todo} />
+				</>
+			);
+		});
+	}
+
 	return (
 		<TodosInner>
-			<h2>TODOS</h2>
+			{todosList.length > 0 ? (
+				todosList
+			) : (
+				<p>
+					You have no items in your todo list. Create an item to begin tracking
+					you list.
+				</p>
+			)}
 		</TodosInner>
 	);
 }
