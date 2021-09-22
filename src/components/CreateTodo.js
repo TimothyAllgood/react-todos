@@ -35,8 +35,11 @@ const TodoInput = styled.input`
 	}
 `;
 
-// Styling for Circle button that saves todo
+// Styling for Circle button that saves todo, uses media query to disable hover on mobile
 const Circle = styled.button`
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 24px;
 	height: 24px;
 	border: 1px solid rgba(255, 255, 255, 0.4);
@@ -47,16 +50,18 @@ const Circle = styled.button`
 	left: 16px;
 	background: transparent;
 	transition: 0.5s ease all;
-	&:hover {
-		cursor: pointer;
-		background: linear-gradient(
-			131.73deg,
-			rgba(114, 190, 248, 0.8) 14.46%,
-			rgba(166, 116, 242, 0.8) 87.62%
-		);
-		svg {
-			path {
-				fill: #fff;
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			cursor: pointer;
+			background: linear-gradient(
+				131.73deg,
+				rgba(114, 190, 248, 0.8) 14.46%,
+				rgba(166, 116, 242, 0.8) 87.62%
+			);
+			svg {
+				path {
+					fill: #fff;
+				}
 			}
 		}
 	}

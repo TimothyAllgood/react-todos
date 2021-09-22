@@ -17,9 +17,16 @@ function TodosContainer({ todos, setTodos }) {
 	// Will hold our todo components
 	let todosList;
 
+	// Finds todo with index passed to function, updates todo active boolean, saves copy of array as new state
 	const completeTodo = (index, todo) => {
 		const newTodos = [...todos];
 		newTodos[index] = { ...todo, active: !todo.active };
+		setTodos(newTodos);
+	};
+
+	// Creates new array without the removed todo item, and updates todo state
+	const removeTodo = (todo) => {
+		const newTodos = todos.filter((t) => t !== todo);
 		setTodos(newTodos);
 	};
 
@@ -33,6 +40,7 @@ function TodosContainer({ todos, setTodos }) {
 						todo={todo}
 						i={index}
 						completeTodo={completeTodo}
+						removeTodo={removeTodo}
 					/>
 				</>
 			);
