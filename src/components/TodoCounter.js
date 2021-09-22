@@ -11,11 +11,11 @@ function TodoCounter({ todos, setTodos }) {
 
 	let count;
 	if (todos.length > 0) {
-		count = todos.filter((todo) => todo.progress === 'Active').length;
+		count = todos.filter((todo) => todo.active).length;
 	}
 
 	const clearCompleted = () => {
-		let activeTodos = todos.filter((todo) => todo.progress === 'Active');
+		let activeTodos = todos.filter((todo) => todo.active);
 		setTodos(activeTodos);
 	};
 

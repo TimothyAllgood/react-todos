@@ -46,10 +46,10 @@ const Circle = styled.button`
 	}
 `;
 
-function Todo({ todo }) {
+function Todo({ todo, completeTodo, i }) {
 	return (
-		<TodoContainer>
-			<Circle>
+		<TodoContainer className={!todo.active && 'todo-completed'}>
+			<Circle onClick={() => completeTodo(i, todo)}>
 				<CheckMark />
 			</Circle>
 			<TodoItem>{todo.item}</TodoItem>

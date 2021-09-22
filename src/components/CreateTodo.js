@@ -90,7 +90,7 @@ function CreateTodo({ todos, setTodos }) {
 				...todos,
 				{
 					item: todo,
-					progress: 'Active',
+					active: true,
 					id: Math.floor(Math.random() * 10000),
 				},
 			]);
@@ -106,7 +106,10 @@ function CreateTodo({ todos, setTodos }) {
 	// TODO: add error alert
 	const handleKeyPress = (e) => {
 		if (e.key === 'Enter' && todo.length > 0) {
-			setTodos([...todos, { item: todo, progress: 'Active' }]);
+			setTodos([
+				...todos,
+				{ item: todo, active: true, id: Math.floor(Math.random() * 10000) },
+			]);
 
 			//Reset todo
 			setTodo('');

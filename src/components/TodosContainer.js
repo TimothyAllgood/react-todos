@@ -17,12 +17,23 @@ function TodosContainer({ todos, setTodos }) {
 	// Will hold our todo components
 	let todosList;
 
+	const completeTodo = (index, todo) => {
+		const newTodos = [...todos];
+		newTodos[index] = { ...todo, active: !todo.active };
+		setTodos(newTodos);
+	};
+
 	// Creates an array of Todo components. This function maps each todo to a todo component. Only called if out todos array contains items
 	if (todos) {
-		todosList = todos.map((todo) => {
+		todosList = todos.map((todo, index) => {
 			return (
 				<>
-					<Todo key={todo.id} todo={todo} />
+					<Todo
+						key={todo.id}
+						todo={todo}
+						i={index}
+						completeTodo={completeTodo}
+					/>
 				</>
 			);
 		});
