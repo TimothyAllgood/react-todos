@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Container } from '../shared/Container';
 import Todo from './Todo';
@@ -6,6 +6,7 @@ import TodoCounter from './TodoCounter';
 
 // Styles our inner container extending our container component styling
 const TodosInner = styled(Container)`
+	position: relative;
 	background-color: #25273c;
 	border-radius: 7px;
 	margin-top: -25px;
@@ -14,6 +15,8 @@ const TodosInner = styled(Container)`
 `;
 
 function TodosContainer({ todos, setTodos }) {
+	const [filter, setFilter] = useState('All');
+
 	// Will hold our todo components
 	let todosList;
 
@@ -32,7 +35,16 @@ function TodosContainer({ todos, setTodos }) {
 
 	// Creates an array of Todo components. This function maps each todo to a todo component. Only called if out todos array contains items
 	if (todos) {
-		todosList = todos.map((todo, index) => {
+		let filtered;
+		if (filter === 'All') {
+			filtered = todos;
+		} else if (filter === 'Active') {
+			filtered = todos.filter((todo) => todo.active);
+		} else if (filter === 'Completed') {
+			filtered = todos.filter((todo) => !todo.active);
+		}
+
+		todosList = filtered.map((todo, index) => {
 			return (
 				<>
 					<Todo
@@ -50,7 +62,7 @@ function TodosContainer({ todos, setTodos }) {
 	return (
 		<TodosInner>
 			{/* Returns todoList array if the todoList array is not empty, otherwise display a paragraph with info on why no todos are displayed */}
-			{todosList.length > 0 ? (
+			{todos.length > 0 ? (
 				todosList
 			) : (
 				<p>
@@ -59,8 +71,13 @@ function TodosContainer({ todos, setTodos }) {
 				</p>
 			)}
 			{/* Display counter of active elements and button to clear completed todos if todos exist*/}
-			{todosList.length > 0 && (
-				<TodoCounter todos={todos} setTodos={setTodos} />
+			{todos.length > 0 && (
+				<TodoCounter
+					todos={todos}
+					setTodos={setTodos}
+					setFilter={setFilter}
+					filter={filter}
+				/>
 			)}
 		</TodosInner>
 	);

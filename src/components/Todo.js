@@ -52,6 +52,27 @@ const Circle = styled.button`
 	}}
 `;
 
+const CloseBtn = styled.button`
+	background: transparent;
+	border: none;
+	transition: 0.3s all ease;
+	&:hover {
+		cursor: pointer;
+		svg {
+			path {
+				fill: #fff;
+				fill-opacity: 1;
+			}
+		}
+	}
+
+	svg {
+		path {
+			transition: all ease 0.3s;
+		}
+	}
+`;
+
 function Todo({ todo, completeTodo, i, removeTodo }) {
 	return (
 		<TodoContainer className={!todo.active && 'todo-completed'}>
@@ -59,7 +80,9 @@ function Todo({ todo, completeTodo, i, removeTodo }) {
 				<CheckMark />
 			</Circle>
 			<TodoItem>{todo.item}</TodoItem>
-			<Close onClick={() => removeTodo(todo)}></Close>
+			<CloseBtn onClick={() => removeTodo(todo)}>
+				<Close />
+			</CloseBtn>
 		</TodoContainer>
 	);
 }

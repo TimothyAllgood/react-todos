@@ -1,12 +1,19 @@
 import styled from 'styled-components';
-
-function TodoCounter({ todos, setTodos }) {
+import FilterTodo from './FilterTodo';
+function TodoCounter({ todos, setTodos, setFilter, filter }) {
 	const Container = styled.section`
 		color: rgba(255, 255, 255, 0.4);
 		display: flex;
 		justify-content: space-between;
 		margin-top: 15px;
 		font-size: 12px;
+		.clear {
+			transition: all ease 0.3s;
+			&:hover {
+				cursor: pointer;
+				color: #fff;
+			}
+		}
 	`;
 
 	let count;
@@ -24,7 +31,10 @@ function TodoCounter({ todos, setTodos }) {
 			<p>
 				{count} item{count > 1 && 's'} left
 			</p>
-			<p onClick={clearCompleted}>Clear Completed</p>
+			<FilterTodo setFilter={setFilter} filter={filter} />
+			<p className='clear' onClick={clearCompleted}>
+				Clear Completed
+			</p>
 		</Container>
 	);
 }

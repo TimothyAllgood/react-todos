@@ -12,15 +12,12 @@ body {
 	caret-color: #72bef8;
 }
 
-.todo-completed {
-}
-
 .todo-completed p {
 	color: rgba(255, 255, 255, 0.4);
 	text-decoration: line-through;
 }
 
-.todo-completed button {
+.todo-completed button:first-child {
 	background: linear-gradient(
 		131.73deg,
 		rgba(114, 190, 248, 0.8) 14.46%,
