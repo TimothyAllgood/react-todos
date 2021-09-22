@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import bg from '../assets/images/bg__trees.png';
+import CreateTodo from './CreateTodo';
+import { Container } from '../shared/Container';
 
 // Styling for background of header
 const Background = styled.section`
@@ -14,17 +16,22 @@ const Background = styled.section`
 		no-repeat center/cover url(${bg});
 `;
 
-// Adds padding to our container to fit mockup specs
-const Container = styled.div`
-	padding-top: calc(232px * 0.2);
+const Title = styled.h1`
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 29px;
+	letter-spacing: 0.25em;
+	text-transform: uppercase;
 `;
 
 // This component will hold our form to create a new Todo
 function Header() {
 	return (
 		<Background>
-			<Container className='inner-container'>
-				<h1>TODO</h1>
+			<Container>
+				<Title>TODO</Title>
+				<CreateTodo />
 			</Container>
 		</Background>
 	);

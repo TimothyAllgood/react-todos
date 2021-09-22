@@ -9,9 +9,5 @@ body {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	line-height: 1.6;
 	color: #fff;
-}
-
-.inner-container {
-	width: 90vw;
-	margin: 0 auto;
+	caret-color: #72bef8;
 }
