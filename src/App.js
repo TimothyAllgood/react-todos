@@ -2,6 +2,8 @@
 import './App.css';
 import styled from 'styled-components';
 import Header from './components/Header';
+import TodosContainer from './components/TodosContainer';
+import { useState } from 'react';
 
 // Main container styling
 const Main = styled.main`
@@ -10,11 +12,24 @@ const Main = styled.main`
 	background: #181824;
 `;
 
+const Grid = styled.div`
+	width: 100vw;
+	margin: 0 auto;
+	display: grid;
+	grid-template-rows: 232px 1fr 1fr;
+`;
+
 function App() {
 	// This component will be the container for all other components
+
+	const [todos, setTodos] = useState([]);
+
 	return (
 		<Main>
-			<Header></Header>
+			<Grid>
+				<Header todos={todos} setTodos={setTodos}></Header>
+				<TodosContainer todos={todos}></TodosContainer>
+			</Grid>
 		</Main>
 	);
 }
