@@ -32,7 +32,7 @@ Building out this project allowed me to go back to the basics, without any packa
 
 I was able to take a step back and really appreciate the nuances of React again.
 
-I used Styled Components for styling the project; which was a new component library to me. This was the first time I had used any CSS-in-JS, so the using that for the first time was an amazing learning opportunity.
+I used Styled Components for styling the project; which was a new component library to me. This was the first time I had used any CSS-in-JS, so using that for the first time was an amazing learning opportunity.
 
 I also interacted with the drag-and-drop API for the first time. After a few bugs, and starting over on the feature a few times; I was able to implement drag-and-drop functionality to reorder my todos.
 
