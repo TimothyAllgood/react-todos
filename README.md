@@ -1,5 +1,7 @@
 # React Todos
 
+[Link to Live Project](https://app.netlify.com/sites/cocky-kowalevski-e23215/overview)
+
 This project was built using React.
 
 ## Local Installation
