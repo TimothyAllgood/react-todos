@@ -32,7 +32,7 @@ const TodosInner = styled(Container)`
 			}
 		}
 	}
-`;
+1`;
 
 function TodosContainer({ todos, setTodos }) {
 	// State to track which todos are being filtered
@@ -54,9 +54,42 @@ function TodosContainer({ todos, setTodos }) {
 		setTodos(newTodos);
 	};
 
+	// Handles dropping a dragged todo
+	const handleDrop = (e) => {
+		// Prevents default dropping behavior
+		e.preventDefault();
+
+		// Finds the todo and index of the todo that we are trying to replace
+		const todoToMove = todos.find(
+			(t) => t.item.toLowerCase() === e.target.innerText.toLowerCase()
+		);
+		const j = todos.indexOf(todoToMove);
+
+		// Finds the todo and index of the todo that we are trying to drag and drop
+		const originalTodo = todos.find(
+			(t) =>
+				t.item.toLowerCase() === e.dataTransfer.getData('text').toLowerCase()
+		);
+
+		const i = todos.indexOf(originalTodo);
+
+		// If the index is zero places the dragged item at the front of the array, fixing a bug that was causing the app to crash
+		if (i === 0) {
+			[todos[0], todos[j]] = [todos[j], todos[0]];
+		} else if (i === todos.length - 1) {
+			[todos[todos.length - 1], todos[j]] = [todos[j], todos[todos.length - 1]];
+		} else {
+			// Otherwise replace the dragged elements index with the index of the element being shifted
+			[todos[i], todos[j]] = [todos[j], todos[i]];
+		}
+		// Sets state to the new order of todos
+		setTodos([...todos]);
+	};
+
 	// Creates an array of Todo components. This function maps each todo to a todo component. Only called if out todos array contains items
 	if (todos) {
 		let filtered;
+
 		if (filter === 'All') {
 			filtered = todos;
 		} else if (filter === 'Active') {
@@ -74,12 +107,12 @@ function TodosContainer({ todos, setTodos }) {
 						i={index}
 						completeTodo={completeTodo}
 						removeTodo={removeTodo}
+						handleDrop={handleDrop}
 					/>
 				</>
 			);
 		});
 	}
-
 	return (
 		<TodosInner>
 			{/* Returns todoList array if the todoList array is not empty, otherwise display a paragraph with info on why no todos are displayed */}

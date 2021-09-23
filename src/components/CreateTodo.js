@@ -86,11 +86,34 @@ function CreateTodo({ todos, setTodos }) {
 		setTodo(e.target.value);
 	};
 
+	// Validates Todo
+	const validateTodo = (todo) => {
+		// Object to hold error info
+		const error = {
+			msg: '',
+			valid: true,
+		};
+		// Check if todos contains same todo
+		const todoExists = todos.filter((t) => t.item === todo);
+
+		// If todo already exists throw an error
+		if (todoExists.length > 0) {
+			error.msg = 'You are already doing that task.';
+			error.valid = false;
+		} else {
+			error.msg = '';
+			error.valid = true;
+		}
+
+		return error;
+	};
+
 	// When the circular button in the input is clicked update our global todos state
 	const handleClick = (e) => {
 		// Check if todo exist
 		// TODO: add error alert
-		if (todo.length > 0) {
+		let validation = validateTodo(todo);
+		if (todo.length > 0 && validation.valid) {
 			setTodos([
 				...todos,
 				{
@@ -104,13 +127,15 @@ function CreateTodo({ todos, setTodos }) {
 			todoInput.value = '';
 		} else {
 			console.log('Todo Input empty');
+			console.log(validation.msg);
 		}
 	};
 
 	// Allow todo to be saved on enter and checks if the input is empty
 	// TODO: add error alert
 	const handleKeyPress = (e) => {
-		if (e.key === 'Enter' && todo.length > 0) {
+		let validation = validateTodo(todo);
+		if (e.key === 'Enter' && todo.length > 0 && validation.valid) {
 			setTodos([
 				...todos,
 				{ item: todo, active: true, id: Math.floor(Math.random() * 10000) },
@@ -121,6 +146,7 @@ function CreateTodo({ todos, setTodos }) {
 			todoInput.value = '';
 		} else {
 			console.log('Todo Input empty');
+			console.log(validation.msg);
 		}
 	};
 

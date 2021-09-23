@@ -9,7 +9,9 @@ const TodoContainer = styled.div`
 	padding: 15px;
 	display: grid;
 	grid-template-columns: 30px 1fr 30px;
-
+	&:hover {
+		cursor: grab;
+	}
 	&:first-of-type {
 		padding: 0 15px 15px;
 	}
@@ -73,9 +75,31 @@ const CloseBtn = styled.button`
 	}
 `;
 
-function Todo({ todo, completeTodo, i, removeTodo }) {
+function Todo({ todo, completeTodo, i, removeTodo, handleDrop }) {
+	const dragStart = (e) => {
+		e.dataTransfer.setData('text/plain', todo.item);
+	};
+
+	const dragOver = (e) => {
+		e.preventDefault();
+	};
+
+	const dragEnter = (e) => {
+		e.preventDefault();
+	};
+
+	const dragLeave = (e) => {
+		e.preventDefault();
+	};
 	return (
-		<TodoContainer className={!todo.active && 'todo-completed'}>
+		<TodoContainer
+			className={!todo.active && 'todo-completed'}
+			draggable
+			onDragStart={dragStart}
+			onDragOver={dragOver}
+			onDragEnter={dragEnter}
+			onDragLeave={dragLeave}
+			onDrop={(e) => handleDrop(e)}>
 			<Circle onClick={() => completeTodo(i, todo)}>
 				<CheckMark />
 			</Circle>

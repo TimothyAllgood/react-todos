@@ -41,17 +41,17 @@ function FilterTodo({ filter, setFilter }) {
 	return (
 		<Container id='filter-container'>
 			<p
-				className={filter === 'All' && 'active'}
+				className={filter === 'All' ? 'active' : undefined}
 				onClick={(e) => updateFilter(e)}>
 				All
 			</p>
 			<p
-				className={filter === 'Active' && 'active'}
+				className={filter === 'Active' ? 'active' : undefined}
 				onClick={(e) => updateFilter(e)}>
 				Active
 			</p>
 			<p
-				className={filter === 'Completed' && 'active'}
+				className={filter === 'Completed' ? 'active' : undefined}
 				onClick={(e) => updateFilter(e)}>
 				Completed
 			</p>
