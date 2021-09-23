@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# React Todos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was built using React.
 
-## Available Scripts
+## Local Installation
 
-In the project directory, you can run:
+To run this project locally follow these steps:
 
-### `yarn start`
+- Clone this repo
+- CD into the cloned repo
+- Run `npm install` to install dependencies
+- Start the app using `npm start` or `yarn start`
+- The app will run on http://localhost:3000/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Documentation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To save todos after inputting the todo title, the user can either click the circle button in the input or press enter.
 
-### `yarn test`
+The input must be filled in otherwise and error message will be displayed and the user will need to enter a todo.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If the todo already exists and error message will be displayed and the user will need to enter a new todo
 
-### `yarn build`
+To mark a todo as complete, hover over the circle button to the left of the todo and click it.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To delete a todo, click the close button to the right of the todo.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Users may filter todos by completion status, using the filter buttons at the bottom of the todo list.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A user may delete all completed todos by clicking the clear completed button at the the bottom of the todo list.
 
-### `yarn eject`
+## Learnings
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Building out this project allowed me to go back to the basics, without any packages, and just focus on the fundamentals.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I was able to take a step back and really appreciate the nuances of React again.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+I used Styled Components for styling the project; which was a new component library to me. This was the first time I had used any CSS-in-JS, so the using that for the first time was an amazing learning opportunity.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I also interacted with the drag-and-drop API for the first time. After a few bugs, and starting over on the feature a few times; I was able to implement drag-and-drop functionality to reorder my todos.
 
-## Learn More
+## Future Features and Improvements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In the future, I would like to add a feature to swipe one direction to delete, and to swipe the other direction to complete your todo.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I would also like to add backend functionality, to persist todos across sessions through the use of a database.
