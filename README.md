@@ -16,8 +16,6 @@ To run this project locally follow these steps:
 
 To save todos after inputting the todo title, the user can either click the circle button in the input or press enter.
 
-The input must be filled in otherwise and error message will be displayed and the user will need to enter a todo.
-
 If the todo already exists and error message will be displayed and the user will need to enter a new todo
 
 To mark a todo as complete, hover over the circle button to the left of the todo and click it.

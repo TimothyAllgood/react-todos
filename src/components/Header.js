@@ -26,12 +26,12 @@ const Title = styled.h1`
 `;
 
 // This component will hold our form to create a new Todo
-function Header({ todos, setTodos }) {
+function Header({ todos, setTodos, setError }) {
 	return (
 		<Background>
 			<Container>
 				<Title>TODO</Title>
-				<CreateTodo todos={todos} setTodos={setTodos} />
+				<CreateTodo todos={todos} setTodos={setTodos} setError={setError} />
 			</Container>
 		</Background>
 	);

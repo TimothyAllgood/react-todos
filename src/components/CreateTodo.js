@@ -74,7 +74,7 @@ const Circle = styled.button`
 `;
 
 // This function will allow users to add Todo items to their todo list
-function CreateTodo({ todos, setTodos }) {
+function CreateTodo({ todos, setTodos, setError }) {
 	// Save our current todo in state, will be used to save one todo to our todos array
 	const [todo, setTodo] = useState('');
 
@@ -91,7 +91,7 @@ function CreateTodo({ todos, setTodos }) {
 		// Object to hold error info
 		const error = {
 			msg: '',
-			valid: true,
+			valid: false,
 		};
 		// Check if todos contains same todo
 		const todoExists = todos.filter((t) => t.item === todo);
@@ -100,9 +100,11 @@ function CreateTodo({ todos, setTodos }) {
 		if (todoExists.length > 0) {
 			error.msg = 'You are already doing that task.';
 			error.valid = false;
+			setError({ msg: 'You are already doing that task.', valid: false });
 		} else {
 			error.msg = '';
 			error.valid = true;
+			setError({ msg: '', valid: true });
 		}
 
 		return error;
@@ -125,9 +127,6 @@ function CreateTodo({ todos, setTodos }) {
 			// Reset todo
 			setTodo('');
 			todoInput.value = '';
-		} else {
-			console.log('Todo Input empty');
-			console.log(validation.msg);
 		}
 	};
 
@@ -144,9 +143,6 @@ function CreateTodo({ todos, setTodos }) {
 			//Reset todo
 			setTodo('');
 			todoInput.value = '';
-		} else {
-			console.log('Todo Input empty');
-			console.log(validation.msg);
 		}
 	};
 
