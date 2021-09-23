@@ -15,9 +15,11 @@ const TodosInner = styled(Container)`
 	.paragraph {
 		text-align: center;
 	}
+
 	div{
 		transition: all ease-in-out 0.5s
 	}
+	
 	.replacement{
 		animation: fade 1.2s;
 		border-bottom-style: solid;
@@ -97,6 +99,8 @@ function TodosContainer({ todos, setTodos }) {
 			[todos[0], todos[j]] = [todos[j], todos[0]];
 		} else if (i === todos.length - 1) {
 			[todos[todos.length - 1], todos[j]] = [todos[j], todos[todos.length - 1]];
+		} else if (i === j) {
+			todos = todos;
 		} else {
 			// Otherwise replace the dragged elements index with the index of the element being shifted
 			[todos[i], todos[j]] = [todos[j], todos[i]];

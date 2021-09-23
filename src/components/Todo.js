@@ -4,6 +4,7 @@ import { ReactComponent as Close } from '../assets/images/icon__close.svg';
 
 // Styles container for individual todo
 const TodoContainer = styled.div`
+	animation: fadeIn 1s;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	margin: 0 -15px;
 	padding: 15px;
@@ -14,6 +15,16 @@ const TodoContainer = styled.div`
 	}
 	&:first-of-type {
 		padding: 0 15px 15px;
+	}
+	@keyframes fadeIn {
+		from {
+			transform: rotateX(90deg);
+			opacity: 0;
+		}
+		to {
+			transform: rotateX(0deg);
+			opacity: 1;
+		}
 	}
 `;
 
@@ -101,6 +112,7 @@ function Todo({ todo, completeTodo, i, removeTodo, handleDrop }) {
 			e.target.parentElement.classList.remove('replacement');
 		}
 	};
+
 	return (
 		<TodoContainer
 			className={!todo.active && 'todo-completed'}
