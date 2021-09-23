@@ -15,6 +15,25 @@ const TodosInner = styled(Container)`
 	.paragraph {
 		text-align: center;
 	}
+	div{
+		transition: all ease-in-out 0.5s
+	}
+	.replacement{
+		animation: fade 1.2s;
+		border-bottom-style: solid;
+ 	 	border-bottom-width: 1px;
+  		border-image: linear-gradient(to left, #72BEF8 25%, #A674F2 86%) 
+		  0 0 100% ;
+		
+	}
+
+	@keyframes fade {
+		0% {border-image: linear-gradient(to left, transparent 25%, transparent 86%) 
+			0 0 100% ;}
+  		100% {border-image: linear-gradient(to left, #72BEF8 25%, #A674F2 86%) 
+			0 0 100% ;}
+	}
+
 	@media screen and (min-width: 800px) {
 		 {
 			margin-top: -40px;

@@ -86,10 +86,20 @@ function Todo({ todo, completeTodo, i, removeTodo, handleDrop }) {
 
 	const dragEnter = (e) => {
 		e.preventDefault();
+		if (e.target.tagName === 'P') {
+			e.target.parentElement.classList.add('replacement');
+		} else {
+			e.target.parentElement.classList.add('replacement');
+		}
 	};
 
 	const dragLeave = (e) => {
 		e.preventDefault();
+		if (e.target.tagName === 'P') {
+			e.target.parentElement.classList.remove('replacement');
+		} else {
+			e.target.parentElement.classList.remove('replacement');
+		}
 	};
 	return (
 		<TodoContainer
