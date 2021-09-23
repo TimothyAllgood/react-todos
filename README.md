@@ -1,6 +1,6 @@
 # React Todos
 
-[Link to Live Project](https://app.netlify.com/sites/cocky-kowalevski-e23215/overview)
+[Link to Live Project](https://cocky-kowalevski-e23215.netlify.app/)
 
 This project was built using React.
 
