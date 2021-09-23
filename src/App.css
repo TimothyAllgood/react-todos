@@ -12,6 +12,20 @@ body {
 	caret-color: #72bef8;
 }
 
+.todo-completed {
+	animation: complete 1s !important;
+}
+
+@keyframes complete {
+	from {
+		transform: rotateX(-90deg);
+	}
+
+	to {
+		transform: rotateX(0deg);
+	}
+}
+
 .todo-completed p {
 	color: rgba(255, 255, 255, 0.4);
 	text-decoration: line-through;
